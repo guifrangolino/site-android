@@ -39,14 +39,16 @@ header {
     padding-top: 30px;
 }
 
-header > h1 {
+header h1 {
     color: white;
     font-family: var(--font1);
     /*text-align: center;*/
     text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.466);
-    margin-bottom: 20px;
+    margin: auto auto 20px auto;
     font-weight: normal;
     font-size: 3em;
+    max-width: 100%;
+    padding: 0px 10px;
 }
 
 header > p {
@@ -63,10 +65,14 @@ header > p {
 nav {
     background-color: var(--cor5);
     padding: 10px;
-    
 }
 
-nav > a {
+#nav-mobile {
+    visibility: hidden;
+    display: none;
+}
+
+nav a {
     text-decoration: none;
     color: var(--cor5);
     font-weight: bolder;
@@ -78,6 +84,7 @@ nav > a {
     color: rgba(255, 255, 255, 0.589);
     font-weight: bolder;
     margin: 0px 10px;
+    min-block-size: 475px;
 }
 
 .linksnav:hover {
@@ -98,28 +105,30 @@ main {
     box-shadow: 0px 0px 1em rgba(0, 0, 0, 0.466);
     border-radius: 0px 0px 10px 10px;
     margin-bottom: 75px;
+    margin-top: 0px;
 }
 main h1 {
     color: var(--cor5);
     font-family: var(--font2);
     font-size: 1.8em;
-    margin-bottom: 25px;
+    /* margin-bottom: 25px; */
     font-weight: normal;
 }
 
 main h2 {
     font-family: var(--font2);
-    background-image: linear-gradient(to right, #83e1ad, white);
+    background-image: linear-gradient(to right, #83e1ad, transparent);
     font-weight: normal;
     color: var(--cor4);
     padding-left: 10px;
-    margin: 20px 0px;
+    /* margin: 20px 0px; */
     font-size: 1.5em;
 }
 
 main p {
     text-indent: 2em;
     text-align: justify;
+    margin: 10px 0px;
 }
 
 img {
@@ -129,22 +138,22 @@ img {
 }
 
 .pequena {
-    width: 50%;
+    max-width: 350px;
 }
 
-.linksmain {
+main a {
     background-color: var(--cor1);
-    padding: 0px 5px;
+    padding: 2px 5px;
     text-decoration: none;
     color: var(--cor5);
     font-weight: bolder;
 }
 
-.linksmain::after {
+main a::after {
     content: ' \01F4CE';
 }
 
-.linksmain:hover {
+main a:hover {
     text-decoration: underline;
     color: var(--cor4);
 }
@@ -172,7 +181,7 @@ strong {
     height: 90%;
 }
 
-ul {
+aside ul {
     list-style-type: '\2714\0020\0020';
     columns: 2;
     list-style-position: inside;
@@ -183,7 +192,7 @@ ul {
 
 
 /*ASIDE QUER APRENDER MAIS*/
-.aside {
+aside {
     background-color: var(--cor1);
     border-radius: 10px;
     box-shadow: 0px 0px 1em rgba(0, 0, 0, 0.466);
@@ -214,4 +223,81 @@ footer {
     color: white;
     text-align: center;
     font-style: italic;
+}
+
+@media (max-width: 678px) {
+
+    #nav-pc {
+        visibility: hidden;
+        display: none;
+    }
+
+    #nav-mobile {
+        visibility: visible;
+        display: inline-block;
+        padding-top: 10px;
+        padding-bottom: 0px;
+        width: -webkit-fill-available;
+        
+    }
+
+    nav {
+        height: 80px;
+        width: 100vw;
+    }
+
+    nav ul {
+        display: none;
+        list-style: none;
+        float: left;
+        margin-left: 0px;
+        padding-left: 0px;
+        position: absolute;
+        margin-top: 80px;
+        background-color: var(--cor5);
+        width: 100%;
+        height: 285px;
+        left: 0;
+        text-align: center;
+        /* transition: all 0.5s; */
+    }
+
+    nav ul li {
+        display: block;
+        line-height: 4.2em;
+        left: 0;
+    }
+
+    .checkbtn {
+        font-size: 3em;
+        color: white;
+        float: left;
+        cursor: pointer;
+        padding-top: 10px;
+        margin-left: 10px;
+    }
+
+    .checkbtn:hover {
+        color: rgba(255, 255, 255, 0.651);
+    }
+
+    #check {
+        display: none;
+    }
+
+    nav a {
+        text-decoration: none;
+        text-align: center;
+    }
+    
+    #nav-mobile a:hover {
+        background-color: none;
+        border-radius: 5px;
+        color: var(--cor5);
+        
+    }
+
+    #check:checked ~ ul {
+        display: inline-block;
+    }
 }
